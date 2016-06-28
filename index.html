@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="post-list">
+
+    {% for post in site.posts %}
+    <article class="post_card post">
+      <header class="post_header">
+        <h5 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h5>
+        <time class="post_date">{{ post.date | date: "%-d %b, %Y" }}</time>
+      </header>
+    </article>
+    <section class="post_excerpt">
+      <p>
+        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+        <a class="read-more" href="{{ post.url | prepend: site.baseurl }}">— » </a>
+      </p> 
+    </section>
+
+      <footer class="post_meta">
+        <span class="author-location">
+          <a href="https://github.com/wild-flame">{{ post.author }}</a>
+        </span>
+      </footer>
+
+      <hr>
+    {% endfor %}
+  </div>
+</div>
