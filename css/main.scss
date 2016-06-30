@@ -28,7 +28,7 @@ $grey-color-dark:  darken($grey-color, 25%);
 // Width of the content area
 $content-width:    800px;
 
-$on-palm:          600px;
+$on-palm:          550px;
 $on-laptop:        780px;
 
 
@@ -46,9 +46,20 @@ $on-laptop:        780px;
     }
 }
 
+.dont-break-out {
 
+  /* Careful, this breaks the word wherever it is without a hyphen */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 
-// Import partials from `sass_dir` (defaults to `_sass`)
+  /* Adds a hyphen where the word breaks */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+
+}
+
 @import
         "normalize",
         "base",

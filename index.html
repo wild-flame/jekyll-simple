@@ -1,20 +1,22 @@
 ---
 layout: default
+title: Home
 ---
 
 <div class="home">
   <div class="post-list">
 
-    {% for post in site.posts %}
+    {% for post in site.posts limit:5%}
+
     <article class="post_card post">
       <header class="post_header">
-        <h5 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h5>
+        <h2 class="post_title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
         <time class="post_date">{{ post.date | date: "%-d %b, %Y" }}</time>
       </header>
     </article>
     <section class="post_excerpt">
       <p>
-        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+        {{ post.content | strip_html | truncate:250 }}
         <a class="read-more" href="{{ post.url | prepend: site.baseurl }}">— » </a>
       </p> 
     </section>
@@ -25,7 +27,9 @@ layout: default
         </span>
       </footer>
 
-      <hr>
+      <hr/>
     {% endfor %}
+
+    <div class="pagination older-post"><a href="./archive">» Archive  </a></div>
   </div>
 </div>
