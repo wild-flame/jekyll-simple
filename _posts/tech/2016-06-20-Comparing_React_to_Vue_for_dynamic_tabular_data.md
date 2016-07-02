@@ -3,6 +3,7 @@ layout: post
 title: ［译］较为完整的 React.js / Vue.js 的性能比较
 author: Taffy 
 category: tech
+location: Beijing
 description: 较为完整的 React.js / Vue.js 的性能比较 
 ---
 

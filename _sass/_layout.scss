@@ -67,10 +67,12 @@ body {
     display: block;
     padding: 5px 0px 0px 0px;
 
+
     li {
       font-size:1.5rem;
       list-style:none;
       font-weight: 100;
+      margin-bottom:1rem;
     }
 
     a:active {
@@ -99,6 +101,11 @@ body {
 
     -webkit-justify-content: center;
     justify-content:center;
+
+    @include media-query($on-laptop) {
+      border-top:1px solid #ddd;
+      border-bottom:1px solid #ddd;
+    }
   }
   
   #menu-toggle:checked+.site-nav {
@@ -121,7 +128,7 @@ input#menu-toggle {
     top: 67px;
 
     @include media-query(400px) {
-      top: 10px;
+      top: 13px;
     }
 
     display: block;
@@ -146,12 +153,14 @@ input#menu-toggle {
 }
 
 
-
 .site-header {
   text-align:right;
   @include media-query($on-laptop){
     text-align: center;
     margin-bottom: 40px;
+  }
+  nav a {
+    font-weight:400;
   }
 }
 
@@ -172,11 +181,21 @@ input#menu-toggle {
 }
 
 .post_date {
-  color:#7E7E7E
+  color:#888;
+  font-size:1.4rem;
+}
+
+p.readmore {
+  text-align:right;
 }
 
 .post_meta {
-
+  .author_meta {
+    img {
+      height:24px;
+      width:24px;
+    }
+  }
 }
 
 .post_archive {
@@ -196,6 +215,22 @@ input#menu-toggle {
   border-bottom:1px dotted red;
 }
 
+.article-footer {
+
+  padding:2rem 0;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+
+  .share {
+    text-align:center;
+  }
+
+  .share-link {
+    text-decoration:underline;
+    margin-left:8px;
+  }
+
+}
 
 .article_share {
 
@@ -212,6 +247,38 @@ input#menu-toggle {
 .article-next {
 
 }
+
+/* author info */
+
+
+.author {
+  @media (max-width: $on-laptop) {
+    display:inline-block;
+    text-align:center;
+  }
+}
+
+.authorimage {
+  @media (min-width: $on-laptop+1) {
+    float:left;
+  }
+  display:inline-block;
+  width: 90px;
+  height: 90px;
+  border-radius: 5%;
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  margin-right: 10px;
+}
+
+.authorinfo {
+  .bio {
+    color:#999;
+  }
+}
+
+
 
 /* footer */
 
@@ -239,12 +306,7 @@ input#menu-toggle {
 /* icon */
 
 .icon {
-  position: relative;
-  display: inline-block;
-  width: $base-font-size;
-  height: $base-font-size;
-  overflow: hidden;
-  fill: currentColor;
+  vertical-align: bottom;
 }
 
 body.custom-background {
@@ -258,6 +320,7 @@ body.custom-background {
 .archive_list { 
   margin-left:5%;
   width:90%;
+  margin-bottom:3rem;
 }
 
 .category-name {

@@ -7,7 +7,7 @@ title: Archive
 
   <h2>Archive</h2>
 
-  <div class="archive_list">
+  <section class="archive_list">
     {% for category in site.categories %}
 
     <div class="category-name">
@@ -24,12 +24,11 @@ title: Archive
 
     {% endfor %}
 
-    <footer class="post_meta">
-      <span class="author-location">
-        <a href="https://github.com/wild-flame">{{ post.author }}</a>
-      </span>
-    </footer>
-  </div>
+  </section>
+
+  <footer class="article-footer" mar>
+    {% include author.html %}
+  </footer>
 </div>
 
 

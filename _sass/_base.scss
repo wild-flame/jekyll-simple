@@ -31,6 +31,10 @@
     margin-bottom: $spacing-unit / 2;
 }
 
+.box {
+  box-sizing: border-box; 
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -58,7 +62,7 @@
 }
 
 /* For devices larger than 780px */
-@media (min-width: 780px) {
+@media (min-width: 781px) {
   .container {
     width: 90%; }
   .column,
@@ -134,8 +138,9 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  /* font-family: Helvetica, Tahoma, Arial, STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif; */
   /* font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-family: -apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
   color: #222; }
 
 
@@ -144,9 +149,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
-  font-weight: 300; }
-h1 { font-size: 2.2rem; line-height: 1.2;  letter-spacing: -.1rem;}
-h2 { font-size: 2.0rem; line-height: 1.25; letter-spacing: -.1rem; }
+  font-weight: 400; }
+h1 { font-size: 2.2rem; line-height: 1.2;  letter-spacing: 0rem;}
+h2 { font-size: 2.0rem; line-height: 1.25; letter-spacing: 0rem; }
 h3 { font-size: 1.7rem; line-height: 1.3;  letter-spacing: -.1rem; }
 h4 { font-size: 1.5rem; line-height: 1.35; letter-spacing: -.08rem; }
 h5 { font-size: 1.3rem; line-height: 1.5;  letter-spacing: -.05rem; }
@@ -169,15 +174,15 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #4078c0;
+  color: #222;
   text-decoration: none;
   //background-color: transparent;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: color .4s;
+  transition: color .4s;
 }
 a:hover {
   color: #b1b1b1;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 
@@ -308,9 +313,10 @@ label > .label-body {
 
 
 /* Lists
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
 ul {
-  list-style: circle inside; }
+  list-style: circle inside; 
+}
 ol {
   list-style: decimal inside; }
 ol, ul {
@@ -324,6 +330,8 @@ ol ul {
   font-size: 90%; }
 li {
   margin-bottom: 1rem; }
+
+*/
 
 
 /* Code
@@ -358,7 +366,7 @@ td:last-child {
 
 
 /* Spacing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
 button,
 .button {
   margin-bottom: 1rem; }
@@ -366,7 +374,7 @@ input,
 textarea,
 select,
 fieldset {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1rem; }
 pre,
 blockquote,
 dl,
@@ -374,10 +382,16 @@ figure,
 table,
 p,
 ul,
-ol,
+ol
 form {
-  margin-bottom: 2.5rem; }
+  margin-bottom: 1.25rem; }
 
+ */
+
+
+p {
+  margin-bottom: 1.25rem;
+}
 
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -396,8 +410,8 @@ form {
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 hr {
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   border-width: 0;
   border-top: 1px solid #E1E1E1; }
 
@@ -422,3 +436,15 @@ img {
     max-width: 100%;
     vertical-align: middle;
 }
+
+/* blockquote */ 
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0 0 0 10px;
+  font-style: normal;
+  font-size: 100%;
+  line-height: 1.8rem;
+  border-left: 3px solid #D0E5F2;
+  font-size: 1.3rem;
+} 
