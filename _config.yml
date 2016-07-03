@@ -24,10 +24,8 @@ kramdown:
 
 # Third-party services
 # just leave someone empty to disable it
-google_analytics: UA-41378161-1
-disqus_shortname: wildflame
-
-permalink: :title/
+# google_analytics: 
+disqus_shortname:
 
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
