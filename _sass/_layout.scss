@@ -1,3 +1,33 @@
+/* layout */
+html,.container {
+  position:relative;
+  min-height:100%;
+}
+
+body {
+  min-height:100%;
+  height:auto;
+}
+
+.page-content {
+    min-height:100%;
+    box-sizing: border-box;
+    height:auto;
+    padding-bottom: 140px;/*等于或略大于footer的高度*/
+}
+
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 0rem;
+  width:100%;
+
+  /* footer style */    
+  color: #99999a;
+  background-color: #FAFAFB;
+}
+
+
 /* Effects
 —————————————————————————————————————————————————— */
 
@@ -15,12 +45,13 @@
 }
 .logo a {
   -webkit-transition:.4s;
-  transition:.4s
+  transition:.4s;
 }
+
 .logo a:hover {
   color:#222;
-  background-image:-webkit-linear-gradient(top,#222,#222);
-  background-image:linear-gradient(to bottom,#222,#222);
+  background-image:-webkit-linear-gradient(bottom,#222,#222);
+  background-image:linear-gradient(to top,#222,#222);
   text-shadow:-1px -1px 0 #FDFDFD,1px -1px 0 #FDFDFD,-1px 1px 0 #FDFDFD,1px 1px 0 #FDFDFD;
   background-repeat:repeat-x;
   background-size:2px 2px;
@@ -30,89 +61,115 @@
 .nav {
   line-height: $base-line-height;
 
-  .menu-icon {
-    display: none;
-  }
-
   .page-link {
     color: $text-color;
     line-height: 1.0;
     display: block;
     padding: 5px 0px 0px 0px;
 
+
     li {
       font-size:1.5rem;
       list-style:none;
       font-weight: 100;
+      margin-bottom:1rem;
     }
 
     a:active {
       font-weight: 500;
     }
   }
+}
 
-  @include media-query(550px) {
-    position: absolute;
-    top: 60px;
+/* site-nav */
+
+@include media-query($on-laptop) {
+  .site-nav {
+
+    /* flex box */
+    display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+    display: -moz-box; /* Firefox 17- */
+    display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+    display: -moz-flex; /* Firefox 18+ */
+    display: -ms-flexbox; /* IE 10 */
+    display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */// Import partials from `sass_dir` (defaults to `_sass`)
+
+    opacity: 0;
+    height: 0;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+
+    -webkit-justify-content: center;
+    justify-content:center;
+
+    @include media-query($on-laptop) {
+      border-top:1px solid #ddd;
+      border-bottom:1px solid #ddd;
+    }
+  }
+  
+  #menu-toggle:checked+.site-nav {
+    opacity: 1;
+    height: auto;
+    margin-bottom:-25px;
+  }
+}
+
+input#menu-toggle {
+  display:none;
+}
+
+.nav .menu-icon {
+  display:none;
+  position:absolute;
+  right:5%;
+
+  @include media-query($on-laptop) {
+    top: 67px;
 
     @include media-query(400px) {
-      top: 9px;
+      top: 13px;
     }
 
-    right: $spacing-unit / 2;
-    // background-color: $background-color;
-    // border: 1px solid $grey-color-light;
-    border-radius: 5px;
-    text-align: right;
+    display: block;
+    text-align: center;
 
-    .menu-icon {
-      display: block;
-      float: right;
-      width: 36px;
-      height: 26px;
-      line-height: 0;
-      padding-top: 10px;
-      text-align: center;
-
-      > svg {
-        width: 18px;
-        height: 15px;
-
+    &:hover {
+      >svg {
         path {
-          fill: $grey-color-dark;
+          fill: $grey-color;
         }
       }
     }
 
-    .trigger {
-      clear: both;
-      display: none;
-    }
+    > svg {
+      width: 18px;
+      height: 15px;
 
-    &:hover .trigger {
-      display: block;
-      padding-bottom: 5px;
-    }
 
-    .page-link {
-      display: block;
-      //padding: 5px 10px;
+      path {
+        fill: $grey-color-dark;
+  } } }
+}
 
-      &:not(:last-child) {
-        margin-right: 0;
-      }
-      margin-left: 20px;
-    }
+
+.site-header {
+  text-align:right;
+  @include media-query($on-laptop){
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  nav a {
+    font-weight:400;
   }
 }
 
-
-.sites-header {
-
+.post {
+  @extend .dont-break-out;
 }
 
-.site_header ul li {
-
+.post-list {
+  
 }
 
 .post_header {
@@ -124,11 +181,21 @@
 }
 
 .post_date {
-  color:#7E7E7E
+  color:#888;
+  font-size:1.4rem;
+}
+
+p.readmore {
+  text-align:right;
 }
 
 .post_meta {
-
+  .author_meta {
+    img {
+      height:24px;
+      width:24px;
+    }
+  }
 }
 
 .post_archive {
@@ -148,6 +215,22 @@
   border-bottom:1px dotted red;
 }
 
+.article-footer {
+
+  padding:2rem 0;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+
+  .share {
+    text-align:center;
+  }
+
+  .share-link {
+    text-decoration:underline;
+    margin-left:8px;
+  }
+
+}
 
 .article_share {
 
@@ -165,20 +248,113 @@
 
 }
 
-.footer .left {
+/* author info */
+
+
+.author {
+  @media (max-width: $on-laptop) {
+    display:inline-block;
+    text-align:center;
+  }
+}
+
+.authorimage {
+  @media (min-width: $on-laptop+1) {
+    float:left;
+  }
+  display:inline-block;
+  width: 90px;
+  height: 90px;
+  border-radius: 5%;
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  margin-right: 10px;
+}
+
+.authorinfo {
+  .bio {
+    color:#999;
+  }
+}
+
+
+
+/* footer */
+
+.footer {
+  float:left;
+}
+
+.left {
+  text-align:center;
+
+  @media (min-width: $on-laptop) {
+    text-align:left;
+  }
+}
+
+.right {
+  text-align:center;
+
+  @media (min-width: $on-laptop) {
+    text-align:right;
+  }
 
 }
 
-.footer .right {
+/* icon */
 
+.icon {
+  vertical-align: bottom;
 }
-
 
 body.custom-background {
   background-image: url('/images/background.png');
   background-repeat: repeat;
   background-position: top left;
   background-attachment: scroll; }
+
+/* Archive page */
+
+.archive_list { 
+  margin-left:5%;
+  width:90%;
+  margin-bottom:3rem;
+}
+
+.category-name {
+  padding-top:20px;
+  text-transform:lowercase;
+  font-variant:small-caps;
+  h2 {
+   letter-spacing:0;
+   border-bottom: 1px solid #ddd;
+  }
+}
+
+div.post_title span.date {
+  font-size: 80%;
+  color: $grey-color;
+}
+
+/* Pagination */
+
+
+.pagination {
+  width:50%;
+}  
+
+.pagination.older-post{
+  float: right;
+  text-align: right;
+}
+
+/* others */
+
+.small-font{
+  font-size:$small-font-size;
+}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

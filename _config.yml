@@ -19,3 +19,19 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+
+# Third-party services
+# just leave someone empty to disable it
+google_analytics: UA-41378161-1
+disqus_shortname: wildflame
+
+permalink: :title/
+
+# defaults set post layout 
+defaults:
+  -
+    scope:
+      type: "posts"
+      path: "_posts"
+    values:
+      layout: "post"
