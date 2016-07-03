@@ -18,7 +18,7 @@ title: Home
           {% if post.description %}
           {{ post.description}}
           {% else %}
-          {{ post.content | strip_html | truncate:250 }}
+          {{ post.excerpt }}
           {% endif %} 
           <a class="read-more" href="{{ post.url | prepend: site.baseurl }}"> »  </a>
         </p> 
