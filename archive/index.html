@@ -1,0 +1,66 @@
+---
+layout: default
+title: Archive
+---
+
+<div>
+
+  <h2>Archive</h2>
+
+  <section class="archive_list">
+    {% for category in site.categories %}
+
+      <div class="category-name">
+        <h2>{{ category | first }}</h2>
+      </div>
+
+    {% endfor %}
+
+    <!-- show pages under the paginator control -->
+    {% for post in paginator.posts %}
+
+      <div class="post_title">
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+        <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+      </div>
+
+    {% endfor %}
+
+    </br>
+
+    <!-- page link -->
+    {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        {% else %}
+          <span>&laquo; Prev</span>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+          {% if page == paginator.page %}
+            <b>{{ page }}</b>
+          {% elsif page == 1 %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.paginate_path | prepend: '/' | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+          {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+        {% else %}
+          <span>Next &raquo;</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+
+  </section>
+
+  <footer class="article-footer" mar>
+    {% include author.html %}
+  </footer>
+</div>
+
+
