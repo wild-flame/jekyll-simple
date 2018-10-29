@@ -19,4 +19,4 @@ So mobile goes first, then the macOS.
 
 ## ^-^
 
-You can click the button [Say Thanks!](https://saythanks.io/to/wild-flame) at the first if you use my project. :D
+You can click the button [Say Thanks!](https://saythanks.io/to/wild-flame) at the first of README if you use/like my project. :D
