@@ -1,3 +1,5 @@
+[![](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/wild-flame)
+
 # jekyll-simple
 
 ## simple
@@ -14,3 +16,7 @@ It has been long that using font with Chinese in web was a tedious and time-cons
 iOS 9 has pulished some new fonts in Chinese and I decided to make one theme that looks good on iOS devices, at the same time, making it acceptable on computers using other fonts.
 
 So mobile goes first, then the macOS.
+
+## ^-^
+
+You can click the button [Say Thanks!](https://saythanks.io/to/wild-flame) at the first if you use my project. :D
