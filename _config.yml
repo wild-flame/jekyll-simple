@@ -12,8 +12,8 @@ description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/jekyll-simple" # the subpath of your site, e.g. /blog
-url: "http://wildflame.me" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://wildflame.me/jekyll-simple" # the base hostname & protocol for your site
 twitter_username: Taffyer 
 github_username:  wild-flame 
 
@@ -29,3 +29,13 @@ disqus_shortname:
 
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
+
+# pagination
+plugins: [jekyll-paginate]
+
+# please change the number below to decide how many posts in one page.
+paginate: 10
+paginate_path: "archive/page:num/"
+
+# you can change the port you like.
+port: 4600
